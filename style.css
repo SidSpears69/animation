@@ -92,7 +92,7 @@ h4 {
     opacity: 1;
     animation-name: animation-wrapper;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation-fill-mode: backwards;
     animation-duration: var(--time);
     animation-delay: calc(10.5 * var(--time));
     z-index: 10;
@@ -175,7 +175,6 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
     z-index: 30;
     visibility: hidden;
     animation-delay: calc(3 * var(--time));
@@ -188,7 +187,6 @@ h4 {
     right: 0;
     top: 0;
     bottom: 0;
-    overflow-y: hidden;
 }
 @keyframes animation-new-rating {
     from {
@@ -259,6 +257,9 @@ h4 {
     animation-duration: 1s;
     position: relative;
     top: 120px;
+}
+.new-rating__office-wrapper {
+    overflow-y: hidden;
 }
 @keyframes animation-new-rating-office {
     from {
