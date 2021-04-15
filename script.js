@@ -90,6 +90,6 @@ const changeGrades = (data) => {
 }
 setInterval(() => {
   $.getJSON('https://bitrix.1dogma.ru/local/rest/tablo/get.php', (data) => {
-    // changeGrades(data);
+    changeGrades(data);
   });
 }, 10000)
