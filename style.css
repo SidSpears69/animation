@@ -258,11 +258,11 @@ h4 {
     animation-fill-mode: forwards;
     animation-duration: 1s;
     position: relative;
-    top: 100px;
+    top: 120px;
 }
 @keyframes animation-new-rating-office {
     from {
-        top: 100px;
+        top: 120px;
     }
 
     to {
