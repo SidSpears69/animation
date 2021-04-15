@@ -1,0 +1,396 @@
+:root {
+    --time: 0.6s;
+    --active-color: #FFC700;
+    --color: #131313;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'TT Norms';
+    color: #131313;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+h2,
+h3,
+h4 {
+    margin: 0 !important;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100%;
+    padding: 84px 38px 53px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.block {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.65vw;
+    padding: 16px 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(119, 149, 193, 0.26);
+    border-radius: 10px;
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top_line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    height: 13%;
+    align-items: center;
+}
+
+@media (max-width: 1400px) {
+    .number {
+
+        font-size: 150px;
+
+    }
+
+    .number img {
+        width: 110px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .number {
+
+        font-size: 120px;
+
+    }
+
+    .number img {
+        width: 90px;
+        margin-top: 70px;
+    }
+}
+.animation-wrapper {
+    display: none;
+}
+.animation-wrapper.start-animation {
+    display: block;
+    opacity: 1;
+    animation-name: animation-wrapper;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: var(--time);
+    animation-delay: calc(10.5 * var(--time));
+    z-index: 10;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    animation-timing-function: ease-in;
+}
+@keyframes animation-wrapper {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.start-animation .animation-black-block {
+    position: absolute;
+    right: -100vw;
+    top: -100vw;
+    width: 200vw;
+    height: 200vh;
+    background: #262525;
+    z-index: 10;
+    clip-path: polygon(0% 0, 100% 0, 100% 100%);
+    animation-duration: calc(1.5 * var(--time));
+    animation-name: animation-black-block;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+
+@keyframes animation-black-block {
+    from {
+        right: -105vw;
+        top: -105vw;
+    }
+
+    to {
+        right: 0;
+        top: 0;
+    }
+}
+
+.start-animation .animation-grey-block {
+    position: absolute;
+    left: -100vw;
+    bottom: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: #343434;
+    z-index: 20;
+    clip-path: polygon(0 9%, 0 100%, 83% 100%);
+    animation-delay: calc(1.5 * var(--time));
+    animation-duration: calc(1.5 * var(--time));
+    animation-name: animation-grey-block;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animation-grey-block {
+    from {
+        left: -100vw;
+        bottom: -100vw;
+    }
+
+    to {
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.start-animation .new-rating {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    z-index: 30;
+    visibility: hidden;
+    animation-delay: calc(3 * var(--time));
+    animation-name: animation-new-rating;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    flex-direction: column;
+    line-height: 1.18;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: hidden;
+}
+@keyframes animation-new-rating {
+    from {
+        visibility: hidden;
+    }
+
+    to {
+        visibility: visible;
+    }
+}
+.new-rating__value {
+    color: #FFC700;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+}
+
+.start-animation .new-rating__plus {
+    font-size: 0;
+    animation-delay: calc(3 * var(--time));
+    animation-name: animation-new-rating-plus;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: var(--time);
+    line-height: 708px;
+    height: 708px;
+    display: inline-block;
+}
+@keyframes animation-new-rating-plus {
+    from {
+        font-size: 0;
+    }
+
+    to {
+        font-size: 300px;
+    }
+}
+.start-animation .new-rating__number {
+    font-size: 0;
+    animation-delay: calc(4 * var(--time));
+    animation-name: animation-new-rating-number;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: var(--time);
+    line-height: 708px;
+    height: 708px;
+    min-width: 240px;
+    text-align: center;
+}
+@keyframes animation-new-rating-number {
+    from {
+        font-size: 0;
+    }
+
+    to {
+        font-size: 600px;
+    }
+}
+.start-animation .new-rating__office {
+    color: #ffffff;
+    font-size: 100px;
+    margin: 0;
+    font-weight: bold;
+    animation-delay: calc(5 * var(--time));
+    animation-name: animation-new-rating-office;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    position: relative;
+    top: 100px;
+}
+@keyframes animation-new-rating-office {
+    from {
+        top: 100px;
+    }
+
+    to {
+        top: 0;
+    }
+}
+.start-animation .circle {
+    border-radius: 50%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: animation-circle;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: calc(4 * var(--time));
+}
+@keyframes animation-circle {
+    from {
+        width: 0;
+        height: 0;
+    }
+
+    to {
+        width: 200vw;
+        height: 200vw;
+    }
+}
+.circle--gray {
+    background-color: #343434;
+    animation-delay: calc(5.8 * var(--time));
+    z-index: 25;
+}
+.circle--black {
+    background-color: #262525;
+    animation-delay: calc(7.5 * var(--time));
+    z-index: 26;
+}
+
+.offices {
+    display: flex;
+    justify-content: space-between;
+    height: 87%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.offices__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24%;
+    position: relative;
+}
+.offices__item--win::before {
+    content: "";
+    display: block;
+    top: 25px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    width: 122px;
+    height: 152px;
+    background-image: url("img/golden-cup-clip.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 1;
+}
+.offices__grade {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14vw;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(119, 149, 193, 0.26);
+    border-radius: 10px;
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.offices__number {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transform: scale(1);
+    color: var(--color);
+}
+.offices__value {
+    background: white;
+    display: block;
+}
+.offices__item--win .offices__number{
+    background: linear-gradient(138.98deg, #FFC700 42.61%, #FFE791 57.29%, #FFC700 70.3%);
+    text-shadow: 0px 4px 10px rgba(189, 155, 34, 0.48);
+}
+.offices__item--win span {
+    font-size: 15.62vw;
+    mix-blend-mode: screen;
+}
+.offices__text {
+    height: 10%;
+    background: #131313;
+    box-shadow: 0px 4px 20px rgba(119, 149, 193, 0.26);
+    border-radius: 10px;
+    color: #Fff;
+    font-size: 1.97vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offices__item--win .offices__text {
+    background: linear-gradient(180deg, #FFC700 0%, #FBDC70 50%, #FFC700 100%);
+    color: #705803;
+}
+.offices__value--new {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateY(-100%);
+}
+
