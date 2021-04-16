@@ -353,12 +353,12 @@ h4 {
     overflow: hidden;
 }
 .offices__number {
-    overflow: hidden;
     position: relative;
     text-align: center;
     transform: scale(1);
     color: var(--color);
-    height: 15.63vw;
+    overflow: hidden;
+    line-height: 1;
 }
 .offices__value {
     background: white;
@@ -366,11 +366,11 @@ h4 {
 }
 .offices__item--win .offices__number{
     background: linear-gradient(138.98deg, #FFC700 42.61%, #FFE791 57.29%, #FFC700 70.3%);
-    text-shadow: 0px 4px 10px rgba(189, 155, 34, 0.48);
 }
 .offices__item--win span {
     font-size: 15.62vw;
     mix-blend-mode: screen;
+    text-shadow: 0px 4px 10px rgba(189, 155, 34, 0.48);
 }
 .offices__text {
     height: 10%;
