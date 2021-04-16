@@ -1,8 +1,11 @@
 "use strict";
+let audio = new Audio('audio.mp3');
+audio.autoplay = true;
 const offices = document.querySelectorAll(".offices__item");
 const animationWrapper = document.querySelector(".animation-wrapper");
 const newRatingValue = animationWrapper.querySelector(".new-rating__number");
 const newRatingOffice = animationWrapper.querySelector(".new-rating__office span");
+const clock = document.querySelector(".time");
 const time = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--time')) * 1000;
 const activeColor = getComputedStyle(document.documentElement).getPropertyValue('--active-color');
 const color = getComputedStyle(document.documentElement).getPropertyValue('--color');
@@ -72,24 +75,32 @@ const animationNumber = (evt) => {
   }
 }
 const changeGrades = (data) => {
-  Array.prototype.some.call(offices, (office, index) => {
-    officeNumber = office.querySelector(".offices__number");
-    currentValue = officeNumber.querySelector(".offices__value--current");
-    newValue = officeNumber.querySelector(".offices__value--new");
-    count = data.COUNTS[index + 1];
-    const height = currentValue.clientHeight;
-    officeNumber.style.height = height + "px";
-    if (parseInt(currentValue.textContent) != count) {
-      animationWrapper.classList.add("start-animation");
-      newRatingValue.textContent = count - currentValue.textContent;
-      newRatingOffice.textContent = index + 1;
-      animationWrapper.addEventListener("animationend", animationNumber);
-      return true;
-    }
-  })
+	if(data.COUNTS) {
+	  Array.prototype.some.call(offices, (office, index) => {
+		officeNumber = office.querySelector(".offices__number");
+		currentValue = officeNumber.querySelector(".offices__value--current");
+		newValue = officeNumber.querySelector(".offices__value--new");
+		count = data.COUNTS[index + 1];
+		if (parseInt(currentValue.textContent) != count) {
+		  let audioplay = audio.play();
+		  animationWrapper.classList.add("start-animation");
+		  let newRateVal = count - currentValue.textContent;
+		  if(newRateVal > 0)
+			  newRateVal = '+'+newRateVal;
+		  newRatingValue.textContent = newRateVal;
+		  newRatingOffice.textContent = index + 1;
+		  animationWrapper.addEventListener("animationend", animationNumber);
+		  return true;
+		}
+	  })
+	}
 }
 setInterval(() => {
   $.getJSON('https://bitrix.1dogma.ru/local/rest/tablo/get.php', (data) => {
     changeGrades(data);
   });
 }, 10000)
+setInterval(function(){
+  const now = new Date();
+  clock.innerHTML = now.toLocaleTimeString();
+},1000);
